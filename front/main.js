@@ -3,7 +3,7 @@ const { response } = require("express");
 function send() {
     const nome = document.getElementById("nameText").value;
     const numero = document.getElementById("numberInput").value;
-    const arquivo = document.getElementById("fileInput").files[0];
+    const arquivo = document.getElementById("file").files[0];
 
     console.log(">>>", arquivo)
 
