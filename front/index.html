@@ -6,7 +6,9 @@
     <title>Xerimbabo</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-fs@0.1.7/lib/fs.min.js"></script>
     <script src="main.js"></script>
+    <script src="custom.js"></script>
 </head>
 <body>
     <!-- <section id="form">
@@ -26,7 +28,7 @@
                  <span id="SubscribeTXT">Assinador</span>
                     <div class="input-type">
                         <input placeholder="Nome" required="" type="text" class="input-is" id="nameText">  
-                        <input placeholder="Number" required="" type="number" class="input-is" id="numberInput">  
+                        <input placeholder="Number" required="" type="number" class="input-is" id="numberInput" oninput="checkNumberInput(this)">  
                     </div>
                     <!-- Selecionar arquivo -->
                     <label for="file" class="labelFile">
@@ -61,8 +63,9 @@
                                 </g>
                             </svg>
                         </span>
-                        <p>Clique para selecionar seu arquivo!</p>
+                        <p id="fileName">Clique para selecionar seu arquivo!</p>
                     </label>
+                    <input class="input" name="text" id="file" type="file" onchange="displayFileName(this)" />                    
                     <!-- Botão e Enviar -->
                     <button class='glowing-btn'>
                         <span class='glowing-txt'>
@@ -73,6 +76,5 @@
             </div>
         </div>
       </form>
-    <input class="input" name="text" id="file" type="file" />
 </body>
 </html>
