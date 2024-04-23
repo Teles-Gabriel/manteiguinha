@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xerimbabo</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/node-fs@0.1.7/lib/fs.min.js"></script> -->
     <script src="main.js"></script>
     <script src="custom.js"></script>
@@ -67,7 +67,7 @@
                     </label>
                     <input class="input" name="text" id="file" type="file" onchange="displayFileName(this)" />                    
                     <!-- Botão e Enviar -->
-                    <button class='glowing-btn'>
+                    <button class='glowing-btn' onclick="send()">
                         <span class='glowing-txt'>
                             EN<span class='faulty-letter'>V</span>IAR
                         </span>

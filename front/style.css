@@ -221,7 +221,7 @@ body {
 }
 
 .glowing-btn {
-    width: 14dvw;
+    width: 10dvw;
     margin-bottom: 1dvh;
     margin-left: 1.5dvw;
     position: relative;
@@ -245,7 +245,11 @@ body {
         0px 0px 0.5em 0px var(--glow-color);
     animation: border-flicker 2s linear infinite;
 }
-
+@media (min-width: 1400px) and (max-width: 1440px) {
+    .glowing-btn{
+        width: 14dvw;
+    }
+}
 .glowing-txt {
     float: left;
     margin-right: -1em;

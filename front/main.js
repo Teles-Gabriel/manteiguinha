@@ -2,6 +2,7 @@ function send() {
     const nome = document.getElementById("nameText").value;
     const numero = document.getElementById("numberInput").value;
     const arquivo = document.getElementById("file").files[0];
+    console.log(arquivo, "Achei o arquivo")
 
     if (arquivo) {
         const formData = new FormData();
@@ -16,6 +17,7 @@ function send() {
             .then(response => response.json())
             .then(response => {
                 let conteudoPdf = response.conteudo;
+                console.log(conteudoPdf)
                 let blob = base64toBlob(conteudoPdf, 'application/pdf');
                 const fileName = "arquivo.pdf";
                 downloadBlob(blob, fileName);

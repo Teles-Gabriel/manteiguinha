@@ -19,7 +19,7 @@ app.post("/teste", upload.single('arquivo'), function(req, res){
     contents = {"conteudo":contents}
     // const pdfRecebido = req.file; // Use req.file para acessar o arquivo enviado
     console.log("PDF: ", contents);
-    res.send("contents");    
+    res.send(contents);    
 });
 
 app.listen(4040);
