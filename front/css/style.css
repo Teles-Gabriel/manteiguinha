@@ -790,7 +790,7 @@ animation: glow-move-green 4s linear infinite; /* Aplica a animação de movimen
   display: flex;
 }
 
-.div-container, #input-dist-verificador{
+.div-container{
   display: flex;
   width: fit-content;
 }
@@ -803,7 +803,12 @@ animation: glow-move-green 4s linear infinite; /* Aplica a animação de movimen
   margin-top: 0.5dvw;
 }
 
-#input-json{
-  margin-left: 3dvw;
+.center{
+  align-self: center;
+  justify-self: center;
 }
+
+/* #input-json{
+  margin-left: 3dvw;
+} */
 
