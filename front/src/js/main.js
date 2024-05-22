@@ -21,7 +21,7 @@ function sendAssinatura(token, arquivo) {
                         confirmButton: 'botao-assinar'
                     }
                 })
-                return response;
+                return response.blob();
             } else {
                 Swal.fire({
                     title: "Houve um problema ao assinar o seu Arquivo",
@@ -39,38 +39,27 @@ function sendAssinatura(token, arquivo) {
                 throw new Error('Erro na requisição: ' + response.statusText);
             }
         })
-        .then(response => response.json())
-        // Esse código será necessário se e somente se você quiser baixar o pdf
-        // .then(response => {
-        //     let conteudoPdf = response.conteudo;
-        //     let blob = base64toBlob(conteudoPdf, 'application/pdf');
-        //     const fileName = "arquivo.pdf";
-        //     downloadBlob(blob, fileName);
-        // })
-        .then(response => {    
-            let json = JSON.stringify(response);
-            let blob = new Blob([json], { type: "application/json" });
-            let url = URL.createObjectURL(blob);
-            let link = document.createElement("a");
-            
-            link.download = "assinatura.json";
-            link.href = url;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            console.log("coraçãozinho S2 S2 *>_<*")
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            // Cria um link para download
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            // Força o download com o nome de arquivo desejado
+            a.download = 'Assinado.pdf';
+            document.body.appendChild(a);
+            a.click();
+            // Limpa a memória removendo o objeto URL criado
+            window.URL.revokeObjectURL(url);
+            // Remove o link após o download
+            a.remove();
         })
-        .catch(error => {
-            console.log(error)
-        });
-
 }
 
-function sendVerificador(assinatura, arquivo) {
+function sendVerificador(arquivo) {
     const formData = new FormData();
     formData.append("arquivoAssinado", arquivo);
-    formData.append("arquivoJson", assinatura);
+    // formData.append("arquivoJson", assinatura);
 
     const options = {
         method: "POST",
