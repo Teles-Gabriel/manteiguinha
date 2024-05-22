@@ -82,17 +82,3 @@ formAssinar.addEventListener("submit", function(event) {
 
     if (validaCamposAssinador(token, arquivo)) sendAssinatura(token.value, arquivo.files[0])
 })
-
-
-
-const formVerificar = document.getElementById("form-verificar");
-
-// Adiciona um ouvinte de evento para o envio do formulário
-formVerificar.addEventListener("submit", function(event) {
-    event.preventDefault(); // Previne o envio padrão do formulário
-
-    // const assinatura = document.getElementById("file-input-ass");
-    const arquivo = document.getElementById("file-input-file");
-
-    if (validaCamposVerificador(assinatura, arquivo)) sendVerificador(assinatura.files[0], arquivo.files[0])
-})

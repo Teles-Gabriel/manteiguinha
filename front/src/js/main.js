@@ -46,7 +46,7 @@ function sendAssinatura(token, arquivo) {
             a.style.display = 'none';
             a.href = url;
             // Força o download com o nome de arquivo desejado
-            a.download = 'Assinado.pdf';
+            a.download = arquivo.name + '_assinado.pdf';
             document.body.appendChild(a);
             a.click();
             // Limpa a memória removendo o objeto URL criado
